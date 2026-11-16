@@ -1,0 +1,233 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Be+Vietnam+Pro:ital,wght@0,500;0,700;0,800;0,900;1,700&family=JetBrains+Mono:wght@600;700;800&family=Space+Grotesk:wght@700&display=swap');
+
+:root {
+  --cm-paper: #EFE9D9;
+  --cm-paper-alt: #E3DCC8;
+  --cm-ink: #0F0F0F;
+  --cm-muted: #4A463E;
+  --cm-green: #1F8A4C;
+  --cm-green-dark: #136636;
+  --cm-pink: #F06CA8;
+  --cm-orange: #E85A1F;
+  --cm-orange-text: #B83B0B;
+  --cm-yellow: #F5C518;
+  --cm-white: #FFFFFF;
+
+  --font-display: 'Be Vietnam Pro', sans-serif;
+  --font-num: 'Archivo Black', 'Be Vietnam Pro', sans-serif;
+  --font-body: 'Be Vietnam Pro', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Base Stage (Full Motion 1920x1080) */
+.cm-stage {
+  position: relative;
+  width: 1920px;
+  height: 1080px;
+  overflow: hidden;
+  background-color: var(--cm-paper);
+  color: var(--cm-ink);
+  font-family: var(--font-body);
+}
+
+.cm-stage-verdict {
+  background-color: var(--cm-green-dark);
+  color: var(--cm-paper);
+}
+
+.cm-stage-overlay {
+  position: relative;
+  width: 1920px;
+  height: 1080px;
+  overflow: hidden;
+  background: transparent;
+  color: var(--cm-ink);
+  font-family: var(--font-body);
+  pointer-events: none;
+}
+
+/* Subtle Neo-Brutalist Grid Backdrop */
+.cm-grid-bg {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(to right, rgba(15, 15, 15, 0.055) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(15, 15, 15, 0.055) 1px, transparent 1px);
+  background-size: 64px 64px;
+  pointer-events: none;
+}
+
+/* Neo-Brutalist Containers (Softly rounded 4 corners, 4px-5px solid ink) */
+.cm-card {
+  background: var(--cm-white);
+  border: 4px solid var(--cm-ink);
+  border-radius: 16px;
+  box-shadow: 6px 6px 0 var(--cm-ink);
+  color: var(--cm-ink);
+}
+
+.cm-card-flat {
+  background: var(--cm-paper-alt);
+  border: 4px solid var(--cm-ink);
+  border-radius: 16px;
+  color: var(--cm-ink);
+}
+
+/* Featured Card (MAX 1 per scene — hard orange offset shadow + 3px ink ring) */
+.cm-card-featured {
+  background: var(--cm-white);
+  border: 5px solid var(--cm-ink);
+  border-radius: 20px;
+  box-shadow: 10px 10px 0 var(--cm-orange), 10px 10px 0 3px var(--cm-ink);
+  color: var(--cm-ink);
+}
+
+/* B-Roll Window Frame (for framing video clips on cream ground without cropping subjects) */
+.cm-broll-window {
+  position: absolute;
+  background: var(--cm-ink);
+  border: 5px solid var(--cm-ink);
+  border-radius: 20px;
+  box-shadow: 10px 10px 0 var(--cm-orange), 10px 10px 0 3px var(--cm-ink);
+  overflow: hidden;
+}
+
+/* Pill Tag (999px radius) */
+.cm-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 20px;
+  border: 3px solid var(--cm-ink);
+  border-radius: 999px;
+  font-family: var(--font-mono);
+  font-size: 16px;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  background: var(--cm-yellow);
+  color: var(--cm-ink);
+  box-shadow: 4px 4px 0 var(--cm-ink);
+}
+
+/* Rounded Badge / Step Tag */
+.cm-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 14px;
+  border: 3px solid var(--cm-ink);
+  border-radius: 12px;
+  font-family: var(--font-mono);
+  font-size: 15px;
+  font-weight: 800;
+  text-transform: uppercase;
+  background: var(--cm-ink);
+  color: var(--cm-paper);
+}
+
+/* Accent Color Utilities (WCAG AA compliant) */
+.cm-bg-green { background-color: var(--cm-green) !important; color: var(--cm-paper) !important; }
+.cm-bg-green-dark { background-color: var(--cm-green-dark) !important; color: var(--cm-paper) !important; }
+.cm-bg-pink { background-color: var(--cm-pink) !important; color: var(--cm-ink) !important; }
+.cm-bg-orange { background-color: var(--cm-orange) !important; color: var(--cm-ink) !important; }
+.cm-bg-yellow { background-color: var(--cm-yellow) !important; color: var(--cm-ink) !important; }
+.cm-bg-paper { background-color: var(--cm-paper) !important; color: var(--cm-ink) !important; }
+.cm-bg-white { background-color: var(--cm-white) !important; color: var(--cm-ink) !important; }
+
+.cm-text-green { color: var(--cm-green-dark) !important; }
+.cm-text-orange { color: var(--cm-orange-text) !important; }
+.cm-text-ink { color: var(--cm-ink) !important; }
+
+/* Typography Scale (Vietnamese diacritic-safe) */
+.cm-title-hero {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: 64px;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+}
+
+.cm-title-xl {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: 48px;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+}
+
+.cm-title-lg {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 32px;
+  line-height: 1.2;
+}
+
+.cm-num-giant {
+  font-family: var(--font-num);
+  font-weight: 900;
+  font-size: 88px;
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+
+.cm-body-text {
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 1.35;
+}
+
+.cm-mono-label {
+  font-family: var(--font-mono);
+  font-weight: 800;
+  font-size: 16px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+/* Safe Side Rails for A-Roll / B-Roll Overlays (Protects center subject & bottom-left badge) */
+.cm-rail-left {
+  position: absolute;
+  left: 64px;
+  top: 96px;
+  width: 410px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.cm-rail-right {
+  position: absolute;
+  right: 64px;
+  top: 96px;
+  width: 410px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Meter / Progress Bar (No CSS transform on .cm-meter-fill to prevent GSAP conflict) */
+.cm-meter-track {
+  position: relative;
+  width: 100%;
+  height: 36px;
+  background: var(--cm-paper-alt);
+  border: 4px solid var(--cm-ink);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.cm-meter-fill {
+  height: 100%;
+  width: 100%;
+  background: var(--cm-green);
+}

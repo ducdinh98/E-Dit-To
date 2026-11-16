@@ -1,0 +1,12 @@
+{
+  "pop": 0.604,
+  "whoosh-short": 0.493,
+  "click-soft": 0.317,
+  "key-press": 0.325,
+  "ping": 0.997,
+  "chime": 2.084,
+  "notification": 2.369,
+  "error": 1.01,
+  "sparkle": 1.778,
+  "thump": 0.28
+}

@@ -1,0 +1,202 @@
+<!doctype html><html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Chọn phong cách</title>
+<style>
+:root { --bg:#f3f1ec; --card:#fff; --ink:#17181c; --muted:#6b6f78; --line:#e3e0d8; --accent:#2f5bea; }
+* { box-sizing:border-box } body { margin:0; background:var(--bg); color:var(--ink); font:15px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif }
+header { padding:36px 40px 8px; max-width:1500px; margin:0 auto }
+h1 { margin:0 0 6px; font-size:30px; letter-spacing:-.01em } header p { margin:0; color:var(--muted); max-width:820px }
+.how { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:14px; margin:22px 0 4px }
+.how div { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:14px 16px }
+.how b { display:block; margin-bottom:2px }
+section { max-width:1500px; margin:0 auto; padding:18px 40px 40px }
+section h3 { font-size:13px; letter-spacing:.08em; text-transform:uppercase; color:var(--muted); margin:18px 0 12px }
+.grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(340px,1fr)); gap:20px }
+.card { background:var(--card); border:1px solid var(--line); border-radius:14px; overflow:hidden; display:flex; flex-direction:column; transition:box-shadow .15s, transform .15s }
+.card:hover { box-shadow:0 14px 40px rgba(0,0,0,.10); transform:translateY(-2px) }
+.card.picked { outline:3px solid var(--accent) }
+.pv { position:relative; aspect-ratio:16/9; overflow:hidden; background:#ddd; border-bottom:1px solid var(--line) }
+.pv iframe { position:absolute; left:0; top:0; width:1600px; height:900px; border:0; transform-origin:0 0; pointer-events:none }
+.pv.mine { display:flex; gap:4px; background:#222; align-items:stretch }
+.pv.mine img { flex:1; min-width:0; object-fit:cover }
+.pv .noref { color:#bbb; margin:auto }
+.pv .type { position:absolute; left:12px; bottom:10px; color:#fff; font-size:28px; text-shadow:0 2px 10px rgba(0,0,0,.6) }
+.meta { padding:14px 16px 16px; display:flex; flex-direction:column; gap:6px; flex:1 }
+.row { display:flex; align-items:center; gap:8px } .row h2 { font-size:17px; margin:0; flex:1 } .row code { color:var(--muted); font-size:12px }
+.n { width:24px; height:24px; border-radius:50%; background:var(--ink); color:#fff; font-size:12px; font-weight:700; display:inline-flex; align-items:center; justify-content:center; flex:none }
+.sw { display:flex; gap:4px } .sw i { width:22px; height:22px; border-radius:6px; border:1px solid rgba(0,0,0,.12) }
+.meta p { margin:0; color:#33363d; font-size:13.5px } .meta p.fonts { color:var(--muted); font-size:12.5px }
+.meta p.mood { font-weight:600; font-size:14.5px; color:var(--ink) } .meta p.when { color:#33363d }
+.meta p.look { color:var(--muted); font-size:12.5px; display:-webkit-box; -webkit-line-clamp:3; -webkit-box-orient:vertical; overflow:hidden }
+.acts { margin-top:auto; padding-top:8px; display:flex; align-items:center; justify-content:space-between; gap:8px }
+.acts a { color:var(--accent); text-decoration:none; font-size:13px }
+.acts button { background:var(--ink); color:#fff; border:0; border-radius:8px; padding:7px 14px; font:600 13px system-ui,sans-serif; cursor:pointer }
+.empty { color:var(--muted); background:var(--card); border:1px dashed var(--line); border-radius:12px; padding:18px }
+#toast { position:fixed; left:50%; bottom:24px; transform:translateX(-50%); background:var(--ink); color:#fff; padding:12px 18px; border-radius:10px; display:none; font-weight:600 }
+@media (max-width:700px) { header, section { padding-left:16px; padding-right:16px } .grid { grid-template-columns:1fr } }
+</style></head><body>
+<header>
+  <h1>Chọn phong cách cho video</h1>
+  <p>Video nào cũng bắt đầu từ một phong cách: màu sắc, font chữ, và cách bố cục từng khung hình. Bạn có thể chọn một phong cách có sẵn bên dưới, hoặc dùng phong cách của riêng bạn, rồi nhắn cho Claude trong chat là bạn chọn phong cách nào.</p>
+  <div class="how">
+    <div><b>Chọn một phong cách ở đây</b>Bấm "Chọn" (câu nhắn đã được copy sẵn), rồi dán vào chat với Claude, ví dụ "Dùng phong cách coral".</div>
+    <div><b>Dùng phong cách của riêng bạn</b>Gửi cho Claude 3 đến 5 ảnh chụp màn hình có phong cách bạn thích, một link website, hoặc một file video, kèm một câu về điều bạn thích ở đó. Claude sẽ tạo thành một phong cách mới trong mục "Phong cách của bạn".</div>
+    <div><b>Chưa biết chọn gì?</b>Hãy nhắn cho Claude "bạn chọn giúp mình". HyperFrames sẽ gợi ý một phong cách hợp với video, hoặc cho bạn xem vài mood board để chọn.</div>
+  </div>
+</header>
+<section><h3>Phong cách của bạn</h3>
+<div class="empty">Chưa có phong cách nào. Những phong cách Claude tạo từ ảnh, website, hay video bạn gửi sẽ nằm ở đây, sẵn sàng cho video tiếp theo.</div>
+<h3>Phong cách có sẵn (của HyperFrames)</h3><div class="grid"><article class="card" data-id="biennale-yellow">
+      <div class="pv"><iframe loading="lazy" src="../../hyperframes-creative/frame-presets/biennale-yellow/frame-showcase.html" tabindex="-1"></iframe></div>
+      <div class="meta">
+        <div class="row"><span class="n">1</span><h2>Biennale Yellow</h2><code>biennale-yellow</code></div>
+        <div class="sw"><i title="paper #E9E5DB" style="background:#E9E5DB"></i><i title="paper-deep #DCD6C4" style="background:#DCD6C4"></i><i title="sun #F1EE2E" style="background:#F1EE2E"></i><i title="sun-soft #F8F39B" style="background:#F8F39B"></i><i title="haze #F0DA7C" style="background:#F0DA7C"></i><i title="ink #1B2566" style="background:#1B2566"></i><i title="ember #E26B4A" style="background:#E26B4A"></i></div>
+        <p class="mood">Tự tin, sâu lắng, tiết chế</p>
+        <p class="when">Hợp với sản phẩm muốn vẻ sang trọng và có chiều sâu như một catalogue triển lãm.</p>
+        <p class="look">Nền giấy ấm, một màu mực chàm đậm, vàng nắng làm điểm nhấn, tiêu đề serif mảnh và sát chữ, góc vuông, đường kẻ mảnh, không đổ bóng.</p>
+        <p class="fonts">Archivo · JetBrains Mono · Instrument Serif</p>
+        <div class="acts"><a href="../../hyperframes-creative/frame-presets/biennale-yellow/frame-showcase.html" target="_blank">Xem bản lớn</a>
+          <button data-say="Dùng phong cách biennale-yellow">Chọn</button></div>
+      </div></article><article class="card" data-id="blockframe">
+      <div class="pv"><iframe loading="lazy" src="../../hyperframes-creative/frame-presets/blockframe/frame-showcase.html" tabindex="-1"></iframe></div>
+      <div class="meta">
+        <div class="row"><span class="n">2</span><h2>BlockFrame</h2><code>blockframe</code></div>
+        <div class="sw"><i title="black #000000" style="background:#000000"></i><i title="white #FFFFFF" style="background:#FFFFFF"></i><i title="offwhite #FFFDF5" style="background:#FFFDF5"></i><i title="pink #FE90E8" style="background:#FE90E8"></i><i title="blue #C0F7FE" style="background:#C0F7FE"></i><i title="green #99E885" style="background:#99E885"></i><i title="yellow #F7CB46" style="background:#F7CB46"></i><i title="cream #FFDC8B" style="background:#FFDC8B"></i></div>
+        <p class="mood">Mạnh, nổi bật, vui nhộn</p>
+        <p class="when">Hợp với sản phẩm muốn trông tự tin và nhiều đồ hoạ.</p>
+        <p class="look">Neo-brutalism: viền đen dày, bóng đổ cứng, 5 màu pastel, chữ Inter rất đậm viết hoa, góc vuông, hoạ tiết nghiêng.</p>
+        <p class="fonts">Inter · Space Grotesk</p>
+        <div class="acts"><a href="../../hyperframes-creative/frame-presets/blockframe/frame-showcase.html" target="_blank">Xem bản lớn</a>
+          <button data-say="Dùng phong cách blockframe">Chọn</button></div>
+      </div></article><article class="card" data-id="blue-professional">
+      <div class="pv"><iframe loading="lazy" src="../../hyperframes-creative/frame-presets/blue-professional/frame-showcase.html" tabindex="-1"></iframe></div>
+      <div class="meta">
+        <div class="row"><span class="n">3</span><h2>Blue Professional</h2><code>blue-professional</code></div>
+        <div class="sw"><i title="bg #fdfae7" style="background:#fdfae7"></i><i title="primary #1e2bfa" style="background:#1e2bfa"></i><i title="text #111111" style="background:#111111"></i><i title="text-muted #6b6b6b" style="background:#6b6b6b"></i><i title="text-light #9a9a9a" style="background:#9a9a9a"></i><i title="positive #059669" style="background:#059669"></i><i title="negative #dc2626" style="background:#dc2626"></i></div>
+        <p class="mood">Điềm đạm, dễ đọc, cao cấp</p>
+        <p class="when">Hợp với sản phẩm muốn sự chặt chẽ như một báo cáo tư vấn hay báo cáo đầu tư.</p>
+        <p class="look">Nền kem ấm, chỉ một màu xanh cobalt làm điểm nhấn, chữ Space Grotesk và Inter, thẻ nền nhạt không đổ bóng, nút bo tròn, thanh tiến trình màu cobalt.</p>
+        <p class="fonts">Inter · Space Grotesk</p>
+        <div class="acts"><a href="../../hyperframes-creative/frame-presets/blue-professional/frame-showcase.html" target="_blank">Xem bản lớn</a>
+          <button data-say="Dùng phong cách blue-professional">Chọn</button></div>
+      </div></article><article class="card" data-id="bold-poster">
+      <div class="pv"><iframe loading="lazy" src="../../hyperframes-creative/frame-presets/bold-poster/frame-showcase.html" tabindex="-1"></iframe></div>
+      <div class="meta">
+        <div class="row"><span class="n">4</span><h2>Bold Poster</h2><code>bold-poster</code></div>
+        <div class="sw"><i title="bg #FFFFFF" style="background:#FFFFFF"></i><i title="dark #1C1410" style="background:#1C1410"></i><i title="red #D8000F" style="background:#D8000F"></i><i title="light #F5F2EF" style="background:#F5F2EF"></i></div>
+        <p class="mood">Mạnh mẽ, chất in ấn, tiết chế</p>
+        <p class="when">Hợp với sản phẩm muốn uy tín kiểu báo chí và nét cổ điển.</p>
+        <p class="look">Poster kiểu báo cũ: tiêu đề Shrikhand hơi nghiêng, thân chữ serif, chỉ 4 màu (trắng, nâu đen, đỏ cà chua, trắng ngà), lưới viền đôi, góc vuông.</p>
+        <p class="fonts">Libre Baskerville · Space Grotesk · Shrikhand</p>
+        <div class="acts"><a href="../../hyperframes-creative/frame-presets/bold-poster/frame-showcase.html" target="_blank">Xem bản lớn</a>
+          <button data-say="Dùng phong cách bold-poster">Chọn</button></div>
+      </div></article><article class="card" data-id="broadside">
+      <div class="pv"><iframe loading="lazy" src="../../hyperframes-creative/frame-presets/broadside/frame-showcase.html" tabindex="-1"></iframe></div>
+      <div class="meta">
+        <div class="row"><span class="n">5</span><h2>Broadside</h2><code>broadside</code></div>
+        <div class="sw"><i title="ink-black #111111" style="background:#111111"></i><i title="ink-black-alt #1A1A18" style="background:#1A1A18"></i><i title="fire-orange #E85D26" style="background:#E85D26"></i><i title="cream #F0ECE5" style="background:#F0ECE5"></i><i title="cream-muted #888880" style="background:#888880"></i><i title="cream-hint #505048" style="background:#505048"></i><i title="border-dark #282826" style="background:#282826"></i></div>
+        <p class="mood">Mạnh, lấy chữ làm chính, dứt khoát</p>
+        <p class="when">Hợp với sản phẩm muốn gây ấn tượng và có sức nặng.</p>
+        <p class="look">Poster cổ động: hai mảng phẳng đen và cam lửa, chữ Barlow rất đậm viết thường dùng như hình khối, chữ phụ IBM Plex Mono viết hoa, góc sắc, không đổ bóng.</p>
+        <p class="fonts">Barlow · IBM Plex Mono</p>
+        <div class="acts"><a href="../../hyperframes-creative/frame-presets/broadside/frame-showcase.html" target="_blank">Xem bản lớn</a>
+          <button data-say="Dùng phong cách broadside">Chọn</button></div>
+      </div></article><article class="card" data-id="capsule">
+      <div class="pv"><iframe loading="lazy" src="../../hyperframes-creative/frame-presets/capsule/frame-showcase.html" tabindex="-1"></iframe></div>
+      <div class="meta">
+        <div class="row"><span class="n">6</span><h2>Capsule</h2><code>capsule</code></div>
+        <div class="sw"><i title="cream #F5F5F0" style="background:#F5F5F0"></i><i title="ink #1A1A1A" style="background:#1A1A1A"></i><i title="outline #1E1E1E" style="background:#1E1E1E"></i><i title="white #FFFFFF" style="background:#FFFFFF"></i><i title="coral #E85D4E" style="background:#E85D4E"></i><i title="lime #C4D94E" style="background:#C4D94E"></i><i title="lavender #C5B5E0" style="background:#C5B5E0"></i><i title="sky #8BB4F7" style="background:#8BB4F7"></i></div>
+        <p class="mood">Thân thiện, mềm mại, kiểu tạp chí</p>
+        <p class="when">Hợp với sản phẩm muốn ấm áp và dễ gần.</p>
+        <p class="look">Mọi khung đều bo tròn như viên thuốc, viền đen mảnh, nền kem, 9 màu kẹo ngọt, chữ Bodoni Moda và Space Grotesk, bóng đổ mềm.</p>
+        <p class="fonts">Space Grotesk · Bodoni Moda</p>
+        <div class="acts"><a href="../../hyperframes-creative/frame-presets/capsule/frame-showcase.html" target="_blank">Xem bản lớn</a>
+          <button data-say="Dùng phong cách capsule">Chọn</button></div>
+      </div></article><article class="card" data-id="cartesian">
+      <div class="pv"><iframe loading="lazy" src="../../hyperframes-creative/frame-presets/cartesian/frame-showcase.html" tabindex="-1"></iframe></div>
+      <div class="meta">
+        <div class="row"><span class="n">7</span><h2>Cartesian</h2><code>cartesian</code></div>
+        <div class="sw"><i title="bg-primary #EDE8E0" style="background:#EDE8E0"></i><i title="bg-secondary #E2DBD1" style="background:#E2DBD1"></i><i title="text-primary #1A1A1A" style="background:#1A1A1A"></i><i title="text-secondary #5A5A5A" style="background:#5A5A5A"></i><i title="accent #8A8178" style="background:#8A8178"></i><i title="line #B8B0A4" style="background:#B8B0A4"></i></div>
+        <p class="mood">Thoáng, chất văn chương, tiết chế</p>
+        <p class="when">Hợp với sản phẩm muốn uy tín một cách lặng lẽ và chỉn chu.</p>
+        <p class="look">Kiểu catalogue bảo tàng: lưới kẻ mảnh màu nâu xám, 5 màu đá ấm, chữ Playfair Display và Inter, góc sắc, vòng tròn hình học như vẽ bằng compa, không đổ bóng.</p>
+        <p class="fonts">Inter · Playfair Display</p>
+        <div class="acts"><a href="../../hyperframes-creative/frame-presets/cartesian/frame-showcase.html" target="_blank">Xem bản lớn</a>
+          <button data-say="Dùng phong cách cartesian">Chọn</button></div>
+      </div></article><article class="card" data-id="cobalt-grid">
+      <div class="pv"><iframe loading="lazy" src="../../hyperframes-creative/frame-presets/cobalt-grid/frame-showcase.html" tabindex="-1"></iframe></div>
+      <div class="meta">
+        <div class="row"><span class="n">8</span><h2>Cobalt Grid</h2><code>cobalt-grid</code></div>
+        <div class="sw"><i title="paper #F0EBDE" style="background:#F0EBDE"></i><i title="paper-2 #E6E0CE" style="background:#E6E0CE"></i><i title="ink #1F2BE0" style="background:#1F2BE0"></i><i title="ink-soft #5560E5" style="background:#5560E5"></i></div>
+        <p class="mood">Tiết chế, có hệ thống, kiểu tạp chí</p>
+        <p class="when">Hợp với sản phẩm muốn sự rõ ràng và uy tín một cách điềm đạm.</p>
+        <p class="look">In risograph hai màu: nền kem, mực xanh cobalt, lưới giấy kẻ ô, đường kẻ mảnh trên và dưới, chữ Newsreader, Hanken Grotesk, và DM Mono, góc vuông, hoạ tiết pixel.</p>
+        <p class="fonts">Hanken Grotesk · DM Mono · Newsreader</p>
+        <div class="acts"><a href="../../hyperframes-creative/frame-presets/cobalt-grid/frame-showcase.html" target="_blank">Xem bản lớn</a>
+          <button data-say="Dùng phong cách cobalt-grid">Chọn</button></div>
+      </div></article><article class="card" data-id="code-editorial">
+      <div class="pv"><iframe loading="lazy" src="../../hyperframes-creative/frame-presets/code-editorial/frame-showcase.html" tabindex="-1"></iframe></div>
+      <div class="meta">
+        <div class="row"><span class="n">9</span><h2>Code editorial</h2><code>code-editorial</code></div>
+        <div class="sw"><i title="ink #141413" style="background:#141413"></i><i title="cream #FAF9F5" style="background:#FAF9F5"></i><i title="tile #EFE9DE" style="background:#EFE9DE"></i><i title="tile-strong #ECE3D4" style="background:#ECE3D4"></i><i title="coral #CC785C" style="background:#CC785C"></i><i title="navy #181715" style="background:#181715"></i><i title="navy-soft #1F1E1B" style="background:#1F1E1B"></i><i title="navy-elev #252320" style="background:#252320"></i></div>
+        <p class="mood">Chỉn chu, chất văn chương, dành cho developer</p>
+        <p class="when">Hợp với một bản cập nhật code, một lần ra mắt hay một tài liệu cần vẻ bình tĩnh và phần code hiển thị đẹp.</p>
+        <p class="look">Nền giấy kem, màu cam đất làm điểm nhấn hiếm hoi, đường kẻ mảnh thay cho bóng đổ, tiêu đề EB Garamond, thân chữ Inter, code JetBrains Mono trên nền xanh navy.</p>
+        <p class="fonts">Inter · JetBrains Mono · EB Garamond</p>
+        <div class="acts"><a href="../../hyperframes-creative/frame-presets/code-editorial/frame-showcase.html" target="_blank">Xem bản lớn</a>
+          <button data-say="Dùng phong cách code-editorial">Chọn</button></div>
+      </div></article><article class="card" data-id="coral">
+      <div class="pv"><iframe loading="lazy" src="../../hyperframes-creative/frame-presets/coral/frame-showcase.html" tabindex="-1"></iframe></div>
+      <div class="meta">
+        <div class="row"><span class="n">10</span><h2>Coral</h2><code>coral</code></div>
+        <div class="sw"><i title="coral #E85D5D" style="background:#E85D5D"></i><i title="coral-dark #D44A4A" style="background:#D44A4A"></i><i title="cream #F5F0E8" style="background:#F5F0E8"></i><i title="cream-dark #E8E0D4" style="background:#E8E0D4"></i><i title="black #1A1A1A" style="background:#1A1A1A"></i><i title="gray #6B6B6B" style="background:#6B6B6B"></i><i title="light-gray #B0B0B0" style="background:#B0B0B0"></i><i title="white #FFFFFF" style="background:#FFFFFF"></i></div>
+        <p class="mood">Táo bạo, nhiều cấu trúc, kiểu tạp chí</p>
+        <p class="when">Hợp với sản phẩm muốn đồ hoạ tự tin và dứt khoát.</p>
+        <p class="look">Ba mảng màu đặc (cam san hô, đen, kem ấm) gặp nhau ở cạnh sắc, sọc chéo trên nền san hô, chữ Bebas Neue và Inter viết hoa, không bo góc, số cỡ lớn làm nền.</p>
+        <p class="fonts">Inter · Bebas Neue</p>
+        <div class="acts"><a href="../../hyperframes-creative/frame-presets/coral/frame-showcase.html" target="_blank">Xem bản lớn</a>
+          <button data-say="Dùng phong cách coral">Chọn</button></div>
+      </div></article><article class="card" data-id="creative-mode">
+      <div class="pv"><iframe loading="lazy" src="../../hyperframes-creative/frame-presets/creative-mode/frame-showcase.html" tabindex="-1"></iframe></div>
+      <div class="meta">
+        <div class="row"><span class="n">11</span><h2>Creative Mode</h2><code>creative-mode</code></div>
+        <div class="sw"><i title="cream #EFE9D9" style="background:#EFE9D9"></i><i title="cream-2 #E4DCC4" style="background:#E4DCC4"></i><i title="ink #0F0F0F" style="background:#0F0F0F"></i><i title="ink-2 #2A2A2A" style="background:#2A2A2A"></i><i title="green #1F8A4C" style="background:#1F8A4C"></i><i title="green-dark #136636" style="background:#136636"></i><i title="pink #F06CA8" style="background:#F06CA8"></i><i title="pink-dark #D14E8B" style="background:#D14E8B"></i></div>
+        <p class="mood">Thoáng, nhiều đồ hoạ, mạnh nhưng tiết chế</p>
+        <p class="when">Hợp với sản phẩm muốn sự hiện diện kiểu tạp chí và hình khối tự tin.</p>
+        <p class="look">Neo-brutalism: nền kem, viền đen dày, bóng đổ cứng, 4 màu nhấn dùng tiết kiệm, tiêu đề Archivo Black viết hoa, nhãn JetBrains Mono, góc vuông.</p>
+        <p class="fonts">Space Grotesk · JetBrains Mono · Archivo Black</p>
+        <div class="acts"><a href="../../hyperframes-creative/frame-presets/creative-mode/frame-showcase.html" target="_blank">Xem bản lớn</a>
+          <button data-say="Dùng phong cách creative-mode">Chọn</button></div>
+      </div></article><article class="card" data-id="daisy-days">
+      <div class="pv"><iframe loading="lazy" src="../../hyperframes-creative/frame-presets/daisy-days/frame-showcase.html" tabindex="-1"></iframe></div>
+      <div class="meta">
+        <div class="row"><span class="n">12</span><h2>Daisy Days</h2><code>daisy-days</code></div>
+        <div class="sw"><i title="cream #F5F0E6" style="background:#F5F0E6"></i><i title="turquoise #7ECDC0" style="background:#7ECDC0"></i><i title="soft-pink #F7C8D4" style="background:#F7C8D4"></i><i title="butter #FDE68A" style="background:#FDE68A"></i><i title="mint #A8E6CF" style="background:#A8E6CF"></i><i title="lavender #D4A5E8" style="background:#D4A5E8"></i><i title="peach #FFCBA4" style="background:#FFCBA4"></i><i title="sky #A8D8F0" style="background:#A8D8F0"></i></div>
+        <p class="mood">Vui nhộn, ngây thơ, dễ thương</p>
+        <p class="when">Hợp với sản phẩm muốn ấm áp và ngộ nghĩnh.</p>
+        <p class="look">Kiểu sách tranh: viền than chì, bóng đổ cứng, 9 màu pastel như khu vườn nắng, chữ Fredoka One và Quicksand, bo góc lớn, hoạ tiết vẽ tay (hoa cúc, ngôi sao, mây, cầu vồng).</p>
+        <p class="fonts">Quicksand · Fredoka One</p>
+        <div class="acts"><a href="../../hyperframes-creative/frame-presets/daisy-days/frame-showcase.html" target="_blank">Xem bản lớn</a>
+          <button data-say="Dùng phong cách daisy-days">Chọn</button></div>
+      </div></article><article class="card" data-id="editorial-forest">
+      <div class="pv"><iframe loading="lazy" src="../../hyperframes-creative/frame-presets/editorial-forest/frame-showcase.html" tabindex="-1"></iframe></div>
+      <div class="meta">
+        <div class="row"><span class="n">13</span><h2>Editorial Forest</h2><code>editorial-forest</code></div>
+        <div class="sw"><i title="green #2e4a2a" style="background:#2e4a2a"></i><i title="green-deep #243a21" style="background:#243a21"></i><i title="green-lite #3a5a36" style="background:#3a5a36"></i><i title="pink #e89cb1" style="background:#e89cb1"></i><i title="pink-deep #d27e96" style="background:#d27e96"></i><i title="cream #efe7d4" style="background:#efe7d4"></i><i title="cream-2 #e6dcc4" style="background:#e6dcc4"></i><i title="ink #1a1a17" style="background:#1a1a17"></i></div>
+        <p class="mood">Thoáng, tiết chế, kiểu tạp chí</p>
+        <p class="when">Hợp với sản phẩm muốn vẻ tự tin lặng lẽ và giọng văn chương.</p>
+        <p class="look">Bộ ba màu xanh lá, hồng, và kem, tiêu đề serif Source Serif 4, nhãn JetBrains Mono viết hoa, nền phẳng không đổ bóng, đường kẻ mảnh, bo góc nhẹ, con dấu chữ lồng hình tròn.</p>
+        <p class="fonts">Source Serif 4 · JetBrains Mono</p>
+        <div class="acts"><a href="../../hyperframes-creative/frame-presets/editorial-forest/frame-showcase.html" target="_blank">Xem bản lớn</a>
+          <button data-say="Dùng phong cách editorial-forest">Chọn</button></div>
+      </div></article></div></section>
+<div id="toast"></div>
+<script>
+function fit(){ document.querySelectorAll('.pv iframe').forEach(f => { const w = f.parentElement.clientWidth; f.style.transform = 'scale(' + (w / 1600) + ')'; }); }
+addEventListener('resize', fit); fit();
+document.querySelectorAll('button[data-say]').forEach(b => b.onclick = async () => {
+  document.querySelectorAll('.card').forEach(c => c.classList.remove('picked')); b.closest('.card').classList.add('picked');
+  const t = b.dataset.say; let copied = false; try { await navigator.clipboard.writeText(t); copied = true; } catch {}
+  const el = document.getElementById('toast'); el.textContent = copied ? 'Đã copy. Bạn dán vào chat với Claude: "' + t + '"' : 'Bạn nhắn cho Claude: "' + t + '"'; el.style.display = 'block';
+  clearTimeout(window.__t); window.__t = setTimeout(() => el.style.display = 'none', 4000);
+});
+</script></body></html>

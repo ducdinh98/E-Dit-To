@@ -1,0 +1,12 @@
+videos/
+renders/
+node_modules/
+.tools/
+*.mp4
+*.mov
+*.mkv
+*.avi
+*.webm
+skills/motion-studio/styles/_refs/
+.DS_Store
+Thumbs.db
