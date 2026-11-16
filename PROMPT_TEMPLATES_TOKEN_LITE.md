@@ -15,7 +15,7 @@ Hãy dựng motion cho video "F:\duong-dan-video.mp4" theo quy trình tiết ki�
 2. Chia tỉ lệ A-Roll (Talking Head) & B-Roll:
    - Đoạn A-Roll: Lúc giữ cảnh người nói + chèn thẻ/vector ở 2 cánh (`.cm-rail-left` / `.cm-rail-right`, không che mặt/sản phẩm/nhãn góc dưới trái); lúc phân tích sâu/so sánh/kết luận thì thay hoàn toàn bằng đại cảnh 100% Full Motion trên nền kem `#EFE9D9` (cảnh kết dùng nền xanh `#136636`).
    - Đoạn B-Roll: Giữ nguyên cảnh B-roll, chỉ chèn thẻ/vector ở 2 bên như A-roll (nếu đóng khung hình chữ nhật thì không được crop mất người/sản phẩm); đoạn Pass-through (Intro, Outro, Voucher, ảnh chụp thử) đặt thẳng trên `index.html`.
-3. Đồ hoạ & Bo cong 4 góc nhẹ: Dùng sẵn `assets/creative-mode.css` và `assets/cm-helpers.js`; toàn bộ khung motion, khung video và khung text làm bo cong 4 góc nhẹ (`16px–24px` cho khung lớn/video, `12px–16px` cho thẻ nhỏ, không dùng góc vuông `0px`); chọn cơ chế trong 12 Nhóm Ẩn Dụ Thị Giác của `PLAYBOOK_LITE.md` khớp từng giây lời thoại.
+3. Đồ hoạ & Bo cong 4 góc nhẹ: Dùng sẵn `assets/creative-mode.css` và `assets/cm-helpers.js`; toàn bộ khung motion, khung video và khung text làm bo cong 4 góc nhẹ (`16px–24px` cho khung lớn/video, `12px–16px` cho thẻ nhỏ, không dùng góc vuông `0px`); chọn cơ chế trong 28 Nhóm Ẩn Dụ Thị Giác của `PLAYBOOK_LITE.md` khớp từng giây lời thoại.
 ```
 
 ---
@@ -31,7 +31,7 @@ Hãy dựng motion cho video "F:\duong-dan-video.mp4" theo quy trình tiết ki�
 2. Chia tỉ lệ A-Roll (Tay cầm sản phẩm) & B-Roll:
    - Đoạn A-Roll: Lúc giữ cảnh 2 bàn tay cầm máy ở giữa + chèn thẻ/vector ở 2 bên (`.cm-rail-left` / `.cm-rail-right`, không che bàn tay/máy ở giữa và nhãn góc dưới trái); lúc phân tích cơ chế phần cứng, bài toán rớt giá, đối đầu đối thủ hoặc tổng kết thì thay hoàn toàn bằng đại cảnh 100% Full Motion trên nền kem `#EFE9D9` (cảnh kết dùng nền xanh `#136636`).
    - Đoạn B-Roll: Giữ nguyên cảnh B-roll, chỉ chèn thẻ thông số/vector ở 2 bên như A-roll (nếu đóng khung hình chữ nhật thì không được crop mất tay/sản phẩm); đoạn Pass-through (Intro, Outro, Voucher, ảnh chụp thử) đặt thẳng trên `index.html`.
-3. Đồ hoạ & Bo cong 4 góc nhẹ: Dùng sẵn `assets/creative-mode.css` và `assets/cm-helpers.js`; toàn bộ khung motion, khung video và khung text làm bo cong 4 góc nhẹ (`16px–24px` cho khung lớn/video, `12px–16px` cho thẻ nhỏ, không dùng góc vuông `0px`); chọn cơ chế trong 12 Nhóm Ẩn Dụ Thị Giác của `PLAYBOOK_LITE.md` khớp từng giây lời thoại.
+3. Đồ hoạ & Bo cong 4 góc nhẹ: Dùng sẵn `assets/creative-mode.css` và `assets/cm-helpers.js`; toàn bộ khung motion, khung video và khung text làm bo cong 4 góc nhẹ (`16px–24px` cho khung lớn/video, `12px–16px` cho thẻ nhỏ, không dùng góc vuông `0px`); chọn cơ chế trong 28 Nhóm Ẩn Dụ Thị Giác của `PLAYBOOK_LITE.md` khớp từng giây lời thoại.
 ```
 
 ---
@@ -47,7 +47,7 @@ Hãy dựng motion cho video thuần 100% voice-off "F:\duong-dan-video.mp4" the
 2. Bố cục Cảnh KHÔNG có B-Roll & Cảnh CÓ B-Roll (Chống crop mất người/sản phẩm):
    - Đoạn KHÔNG có B-Roll: Dựng đại cảnh 100% Full Motion trên nền kem `#EFE9D9` (cảnh kết nền xanh `#136636`), sơ đồ/vector chuyển động chiếm 50%–65% khung hình.
    - Đoạn CÓ B-Roll: Cách A giữ B-roll tràn viền + chèn thẻ/vector ở vùng trống 2 bên; Cách B đóng khung hình chữ nhật bo góc nhẹ `.cm-broll-window` (căn tỷ lệ chuẩn không bị crop mất người/sản phẩm) đặt trên nền kem `#EFE9D9` kèm sơ đồ/biểu đồ chạy đồng bộ bên cạnh.
-3. Đồ hoạ & Bo cong 4 góc nhẹ: Dùng sẵn `assets/creative-mode.css` và `assets/cm-helpers.js`; toàn bộ khung motion, khung video và khung text làm bo cong 4 góc nhẹ (`16px–24px` cho khung lớn/video, `12px–16px` cho thẻ nhỏ, không dùng góc vuông `0px`); chọn cơ chế trong 12 Nhóm Ẩn Dụ Thị Giác của `PLAYBOOK_LITE.md` khớp từng giây lời thoại.
+3. Đồ hoạ & Bo cong 4 góc nhẹ: Dùng sẵn `assets/creative-mode.css` và `assets/cm-helpers.js`; toàn bộ khung motion, khung video và khung text làm bo cong 4 góc nhẹ (`16px–24px` cho khung lớn/video, `12px–16px` cho thẻ nhỏ, không dùng góc vuông `0px`); chọn cơ chế trong 28 Nhóm Ẩn Dụ Thị Giác của `PLAYBOOK_LITE.md` khớp từng giây lời thoại.
 ```
 
 ---

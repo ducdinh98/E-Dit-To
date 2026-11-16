@@ -17,7 +17,7 @@ Kho lưu trữ trọn bộ **22 kỹ năng (`motion-studio`, `hyperframes`, `cre
   - `token-lite/shared/creative-mode.css` & `cm-helpers.js`: Thư viện CSS/GSAP dùng chung (tất cả khung bo cong nhẹ 4 góc, chống lỗi `gsap_css_transform_conflict`)
   - `token-lite/scripts/prep-video.mjs` & `proof-sheet.mjs`: Tự động chuẩn bị dự án, tách âm, xuất 1 ảnh contact sheet & ghép 1 ảnh lưới nghiệm thu
 - **[LESSONS_LEARNED.md](LESSONS_LEARNED.md)**: Tổng hợp toàn bộ lỗi thực tế và quy tắc vàng rút ra từ các dự án thực chiến (WCAG AA, font `Be Vietnam Pro`, SVG cờ, xử lý `gsap_css_transform_conflict`, TikTok Safe Zone, xác minh tư liệu Documentary...).
-- **[skills/](skills/)**: Trọn bộ 22 thư mục kỹ năng (`motion-studio`, `hyperframes`, `hyperframes-creative` với preset `creative-mode/FRAME.md` đã nâng cấp 12 Nhóm Ẩn Dụ Thị Giác & bo góc nhẹ, `hyperframes-animation`, `hyperframes-core`, `hyperframes-audio`, `hyperframes-keyframes`, `hyperframes-registry`, `faceless-explainer`, `embedded-captions`, v.v.).
+- **[skills/](skills/)**: Trọn bộ 22 kỹ năng (`motion-studio`, `hyperframes`, `hyperframes-creative` với preset `creative-mode/FRAME.md` đã nâng cấp **28 Nhóm Ẩn Dụ Thị Giác** & quy tắc bo góc nhẹ, `hyperframes-animation`, `hyperframes-core`, `hyperframes-audio`, `hyperframes-keyframes`, `hyperframes-registry`, `faceless-explainer`, `embedded-captions`, v.v.).
 - **[assets/](assets/)**:
   - `assets/TikTok+Safe+Zone.png`: Sơ đồ vùng an toàn `1080×1920` cho YouTube Shorts & TikTok
   - `assets/sfx/`: Bộ âm thanh hiệu ứng (`.wav`) đã cắt khoảng lặng đầu (`trim` / `fade`) để trộn trực tiếp vào timeline

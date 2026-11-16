@@ -28,19 +28,35 @@
 
 ---
 
-## 2. Bảng 12 Nhóm Ẩn Dụ Thị Giác Động (Chọn Theo Ý Lời Thoại — Không Lặp Lại Ở 2 Cảnh Liên Tiếp)
+## 2. Bảng 28 Nhóm Ẩn Dụ Thị Giác Động (Chọn Theo Ý Lời Thoại — Không Lặp Lại Ở 2 Cảnh Liên Tiếp)
 1. **Dây chuyền / Băng tải & Cổng quét (`svg-pipeline-machine`)**: Giải thích quy trình, thuật toán, luồng xử lý đầu vào → đầu ra.
 2. **Phân loại thẻ & Thanh đo / Đồng hồ kim quay (`card-sorter-meter`)**: Chấm điểm tiêu chí, 3 câu hỏi kiểm chứng, đếm cộng dồn mức độ.
 3. **Mặt cắt X-Ray / Kiến trúc 3 tầng (`svg-cross-section`)**: Mổ xẻ phần cứng (pin, chip, camera), cấu trúc hệ thống, tầng sâu bên trong.
 4. **Biểu đồ tự vẽ (`svg-dataviz-chart`)**: Biểu đồ đường tách nhánh (`stroke-dashoffset`), cột đua, bánh rán, radar tăng trưởng/suy giảm.
 5. **Bàn cân đối đầu / Rớt giá & Kéo cắt Voucher (`balance-scale-vs`)**: Đặt 2 sản phẩm/lựa chọn lên bàn cân nghiêng hoặc thanh trượt giá rơi.
 6. **Mạng lưới Hub & Flowchart (`constellation-flowchart`)**: Hệ sinh thái, kết nối đa thiết bị, sơ đồ rẽ nhánh quyết định.
-7. **Mô phỏng Giao diện & Con trỏ (`ui-cursor-simulator`)**: Cửa sổ trình duyệt/chat/terminal Neo-Brutalist, gõ chữ, con trỏ SVG click nút.
+7. **Mô phỏng Giao diện & Con trỏ (`ui-cursor-simulator`)**: Cửa sổ trình duyệt/chat/terminal bo góc nhẹ, gõ chữ, con trỏ SVG click nút.
 8. **Dòng thời gian & Hiệu ứng Domino (`spatial-timeline-domino`)**: Lịch sử phát triển, lộ trình, chuỗi nguyên nhân → kết quả đổ domino.
 9. **Bản đồ Không gian & Radar (`geo-map-radar`)**: Độ phủ thị trường, định vị, vòng sóng radar quét toả tròn.
 10. **Thử nghiệm Vật lý & Độ bền (`physics-stress-test`)**: Tia nước IP69 bắn bật lại, tia sét sạc nhanh bơm đầy pin, góc rộng mở quạt `100°`.
 11. **Quá tải Hỗn loạn → Dọn Sạch (`overwhelm-to-clarity`)**: 6–8 thẻ cảnh báo rối rắm bị gạt phăng, nhường chỗ cho 1 giải pháp gọn sắc nét.
-12. **Bằng chứng Báo chí / Hoá đơn (`evidence-clipping-receipt`)**: Mảnh báo cắt răng cưa + bút dạ quang vàng quét ngang hoặc hoá đơn cộng tổng.
+12. **Bằng chứng Báo chí / Hoá đơn (`evidence-clipping-receipt`)**: Mảnh báo + bút dạ quang vàng quét ngang hoặc hoá đơn cộng tổng.
+13. **Bản đồ Đại cảnh & Camera Pan Đa Trạm (`spatial-pan-stations`)**: Mặt phẳng lớn gấp 3–4× màn hình gồm nhiều trạm nối nhau; camera ảo lướt ngang/chéo theo lời đọc.
+14. **Cú Zoom-Out Lộ Diện Toàn Cảnh (`zoom-out-workspace-reveal`)**: Mở đầu cận cảnh 1 chi tiết nhỏ rồi kéo lùi camera lộ ra cả đế chế/hệ sinh thái khổng lồ.
+15. **Cuộn Dài Hồ Sơ & Phóng To Điểm Đắt Giá (`transcript-scroll-artifact-reveal`)**: Cuộn dọc qua báo cáo/hợp đồng dài rồi dừng gấp, phóng to + tô dạ quang dòng quyết định.
+16. **Phễu Lọc & Thác Chảy Hao Hụt (`funnel-sankey-flow`)**: Dòng hạt qua từng tầng phễu lọc hoặc luồng Sankey chia tách doanh thu → chi phí → lợi nhuận ròng.
+17. **Lưới 100 Ô Tỷ Lệ (`waffle-grid-proportion`)**: Mạng lưới `10×10` ô bo góc nhẹ quét sóng đổi màu đúng theo phần trăm thị phần/thống kê.
+18. **Đồng Hồ Công-Tơ-Mét / Máy Cuộn Số (`odometer-slot-ticker`)**: Bánh xe chữ số cuộn dọc tốc độ cao rồi khớp lệnh dừng ở con số chốt.
+19. **Tảng Băng Chìm 2 Tầng (`iceberg-surface-vs-depth`)**: Phần nổi nhỏ trên mặt nước (quảng cáo/bề nổi), trượt xuống dưới mặt nước lộ khối băng khổng lồ (sự thật ngầm).
+20. **Thanh Gạt Cắt Ngang Trước–Sau / Kính Lúp Soi (`split-wipe-loupe`)**: Thanh gạt dọc hoặc thấu kính lúp tròn quét đối chiếu Thế hệ cũ vs. Mới / Quảng cáo vs. Thực tế.
+21. **Mô Hình Bóc Tách Đa Lớp (`exploded-layer-stack`)**: Thân máy/hệ thống tách rời 3–4 lớp xếp chồng chéo kèm đường chỉ dẫn ghi chú từng lớp.
+22. **Thanh Kéo Biến Đổi Thời Gian Thực (`panel-edit-live-sync`)**: Kéo thanh trượt thông số bên trái làm biểu đồ/sản phẩm bên phải biến đổi tức thì.
+23. **Cú Húc Va Chạm Chiếm Chỗ (`ticker-takeover-collision`)**: Nhân vật chính/câu trả lời thật lao mạnh vào húc văng các thẻ suy đoán cũ để chiếm trung tâm.
+24. **Bảng Điều Tra Nối Dây Đỏ (`detective-evidence-board`)**: Ghim thẻ nhân vật/công ty/sự kiện kèm sợi dây đỏ SVG tự vẽ nối mối quan hệ (rất mạnh cho Mẫu 5 Documentary).
+25. **Hồ Sơ Nhân Vật / Thẻ Chỉ Số (`character-dossier-card`)**: Tập hồ sơ mở ra gồm ảnh nhân vật/CEO, năm, thanh chỉ số và con dấu đóng mạnh.
+26. **Cây Phả Hệ & Sơ Đồ Thâu Tóm M&A (`acquisition-tree-merge`)**: Sơ đồ phân nhánh công ty mẹ → con hoặc hút hợp nhất các công ty nhỏ vào tập đoàn lớn.
+27. **Trụ Cố Định – Vạn Vật Xoay Vòng (`fixed-anchor-cycle`)**: 1 thẻ/biểu tượng bất động ở giữa trong khi bối cảnh thời kỳ hoặc đối thủ xoay vòng xung quanh.
+28. **Khung Đối Thoại / Tranh Luận 2 Chiều (`chat-debate-thread`)**: Bong bóng tin nhắn bo góc nhẹ nảy luân phiên trái–phải giữa 2 phe quan điểm.
 
 ---
 

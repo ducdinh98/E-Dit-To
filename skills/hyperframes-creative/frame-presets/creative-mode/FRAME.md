@@ -218,9 +218,11 @@ Zero blur. Two depth devices only:
 
 ## Shapes
 
-- **0 radius** on every structural element — stat cells, step cards, table cells, markers, panels.
+- **Softly rounded 4 corners (NEVER sharp `0px` corners)** on all structural containers:
+  - `16px–24px` (`0.85cqw–1.25cqw` @1920) on large motion frames, featured blocks, and B-roll video windows.
+  - `12px–16px` (`0.65cqw–0.85cqw` @1920) on text cards, stat cells, badges, comparison tables, and meters.
 - **50%** on decorative circles, stamp inner ring, the meta dot.
-- **999px** on the topbar pill chip only — the single rounded exception.
+- **999px** on pill chips.
 - **Rotation** only at the fixed brand angles: badge −4deg, stamp −6deg.
 
 ## Components
@@ -240,30 +242,46 @@ Zero blur. Two depth devices only:
 
 > Recipe per plate: ground · container · composes · focal · chrome · accent · silence · Fixed/Free · density.
 > Authored at 1920×1080 or 1080×1920. Lean centered; vary the anchor; one idea per frame.
-> **MANDATORY VISUAL METAPHOR LAW (12 UNIVERSAL ARCHETYPES):** In motion videos, **at least 75%–85% of frames MUST use Code-Driven Illustrated & Interactive Archetypes (`Treatments 7–18` below)** built with `HTML + Inline SVG + CSS + GSAP`. Never chain pure-text frames; every concept, mechanism, comparison, pain point, or statistic in the script must be translated into the best-fitting visual metaphor from the 12 universal archetypes below, occupying **50%–65% of the canvas**, with no two consecutive scenes repeating the same visual archetype.
+> **MANDATORY VISUAL METAPHOR LAW (28 UNIVERSAL ARCHETYPES):** In motion videos, **at least 75%–85% of frames MUST use Code-Driven Illustrated & Interactive Archetypes (`Treatments 7–34` below)** built with `HTML + Inline SVG + CSS + GSAP`. Never chain pure-text frames; every concept, mechanism, comparison, pain point, data breakdown, or documentary narrative beat in the script must be translated into the best-fitting visual metaphor from the 28 universal archetypes below, occupying **50%–65% of the canvas**, with no two consecutive scenes repeating the same visual archetype.
 
-### Universal 12-Archetype Visual Metaphor Taxonomy (Select per Script Beat)
+### Universal 28-Archetype Visual Metaphor Taxonomy (Select per Script Beat)
 
 | # | Archetype ID | Trigger in Script / Voiceover | Code-Driven Visual Mechanism (`Inline SVG + CSS + GSAP`) |
 |---|---|---|---|
-| **7** | `svg-pipeline-machine` | Quy trình, điều kiện lọc, các bước kiểm duyệt, phễu chuyển đổi | Băng tải + cổng quét (`scanner arches`), phễu lọc đa tầng (`funnel`), đường ống van đóng/mở, máy xử lý đóng dấu `ĐẠT ✓` / `LOẠI ✕`. |
+| **7** | `svg-pipeline-machine` | Quy trình, điều kiện lọc, các bước kiểm duyệt, phễu chuyển đổi | Băng tải + cổng quét (`scanner arches`), đường ống van đóng/mở, máy xử lý đóng dấu `ĐẠT ✓` / `LOẠI ✕`. |
 | **8** | `card-sorter-meter` | Phân loại danh sách (Ưu/Nhược, AI/Người, Nên/Không), chấm điểm rủi ro/hiệu quả | Xấp thẻ tự bay vào 2 cột hoặc ma trận 2×2, kết hợp thanh đo `Progress Bar` hoặc đồng hồ kim quay (`Radial Gauge / Speedometer`) tăng/giảm động. |
-| **9** | `svg-cross-section` | Cấu tạo bên trong sản phẩm/thiết bị, phân tầng tổ chức, tháp nhu cầu, tảng băng chìm | Mặt cắt toà nhà nhiều tầng (có đèn chiếu), tia X-Ray quét linh kiện máy (`clip-path`), bản vẽ bung lớp (`exploded view`), tháp `Pyramid` hoặc tảng băng `Iceberg`. |
-| **10** | `svg-dataviz-chart` | Số liệu thống kê, tăng trưởng/sụt giảm, thị phần, chấm điểm đa tiêu chí | Biểu đồ đường tự vẽ (`stroke-dashoffset`) & tách nhánh tô vùng chênh lệch, biểu đồ cột đua (`bar race`), biểu đồ mạng nhện 5–6 cạnh (`radar chart`), biểu đồ thác nước. |
+| **9** | `svg-cross-section` | Cấu tạo bên trong sản phẩm/thiết bị, phân tầng tổ chức, tháp nhu cầu | Mặt cắt toà nhà nhiều tầng (có đèn chiếu), tia X-Ray quét linh kiện máy (`clip-path`), hoặc tháp `Pyramid`. |
+| **10** | `svg-dataviz-chart` | Số liệu thống kê, tăng trưởng/sụt giảm, thị phần, chấm điểm đa tiêu chí | Biểu đồ đường tự vẽ (`stroke-dashoffset`) & tách nhánh tô vùng chênh lệch, biểu đồ cột đua (`bar race`), biểu đồ mạng nhện 5–6 cạnh (`radar chart`). |
 | **11** | `balance-scale-vs` | So sánh 2 đối thủ, cân nhắc Lợi ích vs Chi phí, cú rơi giá / giảm giá sâu | Chiếc cân đĩa cơ học (`balance scale`) nghiêng theo quả cân, sàn đấu chia đôi `VS Split`, hoặc quả tạ kéo giá rơi từ đỉnh xuống đáy kèm thẻ Voucher cắt kéo. |
 | **12** | `constellation-flowchart` | Hệ sinh thái, kết nối đa công cụ, sơ đồ tư duy, luồng quyết định (`Nếu A → B`) | Nút trung tâm (`Hub`) phát xung năng lượng truyền qua cáp tới các vệ tinh (`Constellation`), hoặc sơ đồ cây (`Decision Flowchart`) tự vẽ nhánh & bật sáng kết quả. |
-| **13** | `ui-cursor-simulator` | Thao tác phần mềm/app, cài đặt máy, gõ lệnh AI (prompt), chỉnh sửa trực tiếp | Khung giao diện app/điện thoại Neo-Brutalist có con trỏ (`cursor`) tự di chuyển bấm nút, kéo thanh trượt, gõ câu lệnh (`typewriter`) và bung ra kết quả hoặc `Code Diff`. |
-| **14** | `spatial-timeline-domino` | Lịch sử phát triển, lộ trình nâng cấp (OS 15→16→17), các bước sự nghiệp, hiệu ứng dây chuyền | Camera trượt ngang qua các trạm cột mốc (`spatial pan stations`), bậc thang đi lên (`staircase`), hoặc chuỗi quân cờ Domino đổ liên hoàn. |
+| **13** | `ui-cursor-simulator` | Thao tác phần mềm/app, cài đặt máy, gõ lệnh AI (prompt), chỉnh sửa trực tiếp | Khung giao diện app/điện thoại bo góc nhẹ có con trỏ (`cursor`) tự di chuyển bấm nút, gõ câu lệnh (`typewriter`) và bung ra kết quả hoặc `Code Diff`. |
+| **14** | `spatial-timeline-domino` | Lộ trình nâng cấp (OS 15→16→17), các bước sự nghiệp, hiệu ứng dây chuyền | Bậc thang đi lên (`staircase`), trục thời gian cột mốc nảy lần lượt, hoặc chuỗi quân cờ Domino đổ liên hoàn. |
 | **15** | `geo-map-radar` | Thị trường địa lý, độ phủ sóng, xuất xứ, chuỗi cung ứng, định vị | Bản đồ vector (`SVG Map`) tô màu vùng, thả ghim (`pins`) nảy số liệu, đường bay nối các điểm (`dashed arc`), hoặc mặt phẳng quét `Radar Sweep` xoay tròn. |
-| **16** | `physics-stress-test` | Thông số phần cứng: kháng nước IP68/69, sạc nhanh, dung lượng pin, góc rộng camera, tần số 120Hz | Tia nước bắn vào khiên chắn bật ngược ra (`IP69`), viên pin bơm đầy vạch năng lượng xanh + tia sét, chùm tia góc chụp camera mở rộng `75° → 100°` (`SVG wedge`). |
+| **16** | `physics-stress-test` | Thông số phần cứng: kháng nước IP68/69, sạc nhanh, dung lượng pin, góc rộng camera, 120Hz | Tia nước bắn vào khiên chắn bật ngược ra (`IP69`), viên pin bơm đầy vạch năng lượng xanh + tia sét, chùm tia góc chụp camera mở rộng `75° → 100°` (`SVG wedge`). |
 | **17** | `overwhelm-to-clarity` | Nỗi đau quá tải thông tin/công việc, rối rắm chưa có giải pháp → dọn sạch tối giản | Hàng chục thẻ cảnh báo/icon vây kín giữa màn hình rồi bị đẩy văng ra ngoài (`clutter shove`), hoặc cuộn dây rối (`tangled paths`) kéo căng thành 1 đường thẳng. |
-| **18** | `evidence-clipping-receipt` | Trích dẫn báo chí, nghiên cứu khoa học, bình luận người dùng (MXH), hoá đơn chi phí | Mảnh báo/nghiên cứu ghim nghiêng có bút dạ quang (`marker highlight`) tô đậm, chuỗi bình luận MXH nảy lên, hoặc tờ hoá đơn dài (`receipt`) cộng tổng tiền. |
+| **18** | `evidence-clipping-receipt` | Trích dẫn báo chí, nghiên cứu khoa học, bình luận người dùng (MXH), hoá đơn chi phí | Mảnh báo/nghiên cứu ghim nghiêng bo góc nhẹ có bút dạ quang (`marker highlight`) tô đậm, hoặc tờ hoá đơn dài (`receipt`) cộng tổng tiền. |
+| **19** | `spatial-pan-stations` | Chuỗi cung ứng toàn cầu, hành trình lịch sử dài nhiều chặng, liên kết đa mắt xích | Mặt phẳng đại cảnh lớn gấp 3–4× màn hình gồm nhiều trạm nối với nhau; camera ảo trượt ngang/chéo từ trạm A → B → C đồng bộ theo lời đọc. |
+| **20** | `zoom-out-workspace-reveal` | Mở đầu gây tò mò từ chi tiết nhỏ rồi lật mở quy mô đế chế/hệ sinh thái khổng lồ | Mở đầu cận cảnh cực sát vào 1 linh kiện/con số/cửa hàng nhỏ, sau đó camera kéo lùi (zoom-out) mượt mà lộ ra nó chỉ là 1 góc nhỏ trong bức tranh toàn cảnh lớn. |
+| **21** | `transcript-scroll-artifact-reveal` | Bằng chứng pháp lý, điều khoản chữ nhỏ người dùng hay bỏ qua, danh sách dài hàng chục mục | Cuộn dọc qua một văn bản/báo cáo/hợp đồng dài rồi phanh gấp, phóng to (`pop-out`) kèm vệt dạ quang đúng dòng chữ/con số quyết định. |
+| **22** | `funnel-sankey-flow` | Cơ cấu giá thành, dòng tiền doanh thu → chi phí → lợi nhuận, tỷ lệ đào thải qua từng vòng | Dòng hạt đổ vào miệng phễu lớn bị chặn qua từng tầng lọc thu hẹp, hoặc sơ đồ Sankey tách nhánh dòng tiền to/nhỏ khác nhau chảy về từng hạng mục. |
+| **23** | `waffle-grid-proportion` | Thị phần, tỷ lệ người dùng, xác suất thống kê trực quan thay cho biểu đồ tròn | Mạng lưới `10×10` (`100` ô vuông/icon bo góc nhẹ) tự động quét sóng đổi màu đúng theo phần trăm (VD: 82 ô Cam `#E85A1F`, 18 ô Xám). |
+| **24** | `odometer-slot-ticker` | Khối tài sản tăng vọt, khoản lỗ kỷ lục, đếm ngược năm lịch sử, giá bán chốt cuối | Các bánh xe chữ số cuộn dọc tốc độ cao như công-tơ-mét/bảng điện tử chứng khoán trước khi khớp lệnh dừng khựng lại kèm rung nhẹ. |
+| **25** | `iceberg-surface-vs-depth` | Bóc tách sự thật ẩn sau bề nổi hào nhoáng, chi phí ẩn, quyền lực ngầm | Mặt cắt ngang mặt nước: phần nổi nhỏ phía trên hiển thị quảng cáo/bề nổi, camera trượt xuống dưới mặt nước lộ khối băng khổng lồ chứa sự thật ngầm. |
+| **26** | `split-wipe-loupe` | So sánh 2 thế hệ sản phẩm, đối chiếu Quảng cáo vs. Thực tế, soi chi tiết siêu nhỏ | Một thanh gạt dọc quét qua lại trên khung hình (hoặc thấu kính lúp tròn di chuyển), ngăn đôi phần Thế hệ cũ/Quảng cáo và Thế hệ mới/Thực tế. |
+| **27** | `exploded-layer-stack` | Giải phẫu phần cứng smartphone/laptop/bán dẫn, cấu trúc kiến trúc phần mềm đa lớp | Thân máy/khối hệ thống tách rời thành 3–4 lớp xếp chồng chéo (Kính → Màn hình → Chip → Pin) kèm đường chỉ dẫn (`leader lines`) ghim nhãn thông số từng lớp. |
+| **28** | `panel-edit-live-sync` | Mối quan hệ nhân quả trực tiếp ("Tăng thông số A thì B thay đổi ngay thế nào?") | Thanh trượt thông số bên trái kéo thay đổi giá trị (nhiệt độ, xung nhịp, ngân sách) làm biểu đồ/hình ảnh sản phẩm bên phải biến đổi trạng thái tức thì. |
+| **29** | `ticker-takeover-collision` | Cú Twist lật ngược vấn đề, Hook gây sốc, ra mắt sản phẩm "kẻ huỷ diệt phân khúc" | Các thẻ suy đoán đang xếp ở giữa bỗng bị khối nhân vật chính/câu trả lời lao mạnh từ cạnh màn hình vào **húc văng** sang một bên và độc chiếm trung tâm. |
+| **30** | `detective-evidence-board` | Phóng sự điều tra, thương vụ ngầm, gia tộc tài phiệt, cuộc chiến pháp lý (Mẫu 5 Documentary) | Các tấm thẻ ảnh nhân vật, công ty, địa điểm ghim lên bảng, sau đó các sợi dây đỏ/mũi tên SVG tự động vẽ nối A → B → C kèm nhãn mối quan hệ. |
+| **31** | `character-dossier-card` | Giới thiệu nhân vật lịch sử, CEO, "hồ sơ năng lực" của một dòng máy | Tập hồ sơ mở ra với khung ảnh bo góc nhẹ, mốc năm, 3–4 thanh chỉ số đặc trưng và con dấu đóng mạnh xuống góc thẻ (`NHÀ SÁNG LẬP`, `KẺ THÁCH THỨC`). |
+| **32** | `acquisition-tree-merge` | Lịch sử mở rộng đế chế, mua bán sáp nhập (M&A), phân nhánh dòng sản phẩm | Sơ đồ phân nhánh từ 1 công ty gốc ra các nhánh con, hoặc các thẻ công ty nhỏ bị kéo hút hợp nhất vào một khối tập đoàn mẹ lớn ở trung tâm. |
+| **33** | `fixed-anchor-cycle` | Thông điệp "Mọi thứ đều đổi thay, chỉ có 1 giá trị/thương hiệu cốt lõi đứng vững" | Một thẻ/biểu tượng duy nhất đứng bất động ở tâm màn hình trong suốt cả cảnh, trong khi bối cảnh thời gian hoặc đối thủ xoay vòng đổi liên tục xung quanh. |
+| **34** | `chat-debate-thread` | Giải đáp thắc mắc người xem, tái hiện cuộc tranh luận 2 luồng quan điểm trái chiều | Các khung bong bóng tin nhắn bo góc nhẹ nảy lên luân phiên bên trái và bên phải như cuộc đối đáp trực tiếp (Người dùng hỏi ↔ Chuyên gia, Phe khen ↔ Phe chê). |
 
 ### 1 · Wordmark Cover (identity · move: full-frame lockup · centered)
 
 **Ground** `{colors.cream}`, `frame-pad`. **Container** grid, focal centered with an accompanying hero `<svg>` emblem/device/machine illustration.
 **Composes** kicker-block, the wordmark, hero SVG illustration. **Focal** the two-line wordmark at `display-hero`
-(15.5cqw), centered, second line in an accent (`{colors.pink}`/`orange`), paired with a bold ink-stroked SVG visual icon/rig. **Accent** the second-line color + SVG accent fill. **Fixed** Archivo Black / Be Vietnam Pro uppercase, one accent on the wordmark, square corners, `4px` ink borders.
+(15.5cqw), centered, second line in an accent (`{colors.pink}`/`orange`), paired with a bold ink-stroked SVG visual icon/rig. **Accent** the second-line color + SVG accent fill. **Fixed** Archivo Black / Be Vietnam Pro uppercase, one accent on the wordmark, softly rounded 4 corners (`16px–24px`), `4px` ink borders.
 
 ### 2 · Big Claim (oversized statement · move: scale · left)
 
@@ -322,8 +340,8 @@ sign-off at `display-lg` in `{colors.cream}`, centered. **Composes** stamp, summ
 ### Do
 
 - Compose around **one visual metaphor per frame**, where the **code-authored `<svg>` illustration, interactive diagram, or chart occupies 50%–65% of the frame**.
-- Use **70%–80% Illustrated Treatments (Treatments 7–10)** across every video so the viewer watches living mechanisms, moving vectors, sorting cards, cross-sections, and self-drawing charts — never a wall of text boxes.
-- Style every SVG illustration in authentic `creative-mode` Neo-Brutalism: crisp `4px` (`#0F0F0F`) strokes, flat fills from the approved palette (`cream`, `cream-2`, `green`, `pink`, `orange`, `yellow`), and hard offset drop shadows (`filter: drop-shadow(8px 8px 0 #0F0F0F)`).
+- Use **75%–85% Illustrated Treatments (Treatments 7–34)** across every video so the viewer watches living mechanisms, moving vectors, sorting cards, cross-sections, investigative boards, and self-drawing charts — never a wall of text boxes.
+- Style every SVG illustration and container in authentic `creative-mode` Neo-Brutalism with **softly rounded 4 corners (`16px–24px` large frames / video windows, `12px–16px` cards / badges, `999px` pills — never sharp `0px`)**, crisp `4px` (`#0F0F0F`) strokes, flat fills from the approved palette (`cream`, `cream-2`, `green`, `pink`, `orange`, `yellow`), and hard offset drop shadows (`filter: drop-shadow(8px 8px 0 #0F0F0F)`).
 - Use **two or three accents per frame**; reserve `{colors.green-dark}` full-bleed ground for the closing plate.
 - Spend the featured orange+ink hard offset shadow on **one hero callout or card per frame** (structural SVG elements may use ink-only hard offset shadows).
 - Size headlines **fit-to-measure**; keep text concise so the SVG illustration is the star.
@@ -367,11 +385,11 @@ grid and ledger especially carry placeholders, not fabricated values.
 
 ## Pre-Render Self-Audit
 
-- **Visual Metaphor Ratio** — at least 70%–80% of frames feature a rich code-authored `<svg>` diagram, pipeline rig, card sorter, cross-section, or data chart (`Treatments 7–10`) occupying 50%–65% of the canvas.
+- **Visual Metaphor Ratio** — at least 75%–85% of frames feature a rich code-authored `<svg>` diagram, pipeline rig, card sorter, cross-section, investigative board, or data chart (`Treatments 7–34`) occupying 50%–65% of the canvas.
 - **Squint** — the hero SVG illustration or primary figure dominates at 3–5× its neighbor.
 - **Accents** — two or three per frame, never all four; green ground only on the closer.
 - **Depth** — hard offset shadows (`#0F0F0F` or `#E85A1F` + `#0F0F0F`); color-block contrast otherwise.
-- **Geometry** — bold `4px` `#0F0F0F` strokes on all cards and SVG illustrations; rotation at −4/−6deg for stamps/badges.
+- **Geometry** — bold `4px` `#0F0F0F` strokes and **softly rounded 4 corners (`16px–24px` / `12px–16px` / `999px`)** on all cards, video frames, and SVG containers (never `0px`); rotation at −4/−6deg for stamps/badges.
 - **Type** — Be Vietnam Pro / Archivo Black uppercase (`1.14` lh for Vietnamese), fit-to-measure, ≥1.4cqw on load-bearing lines.
 - **Fabrication** — every numeral traces to the script, else placeholder.
 
